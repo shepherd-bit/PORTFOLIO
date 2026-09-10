@@ -1,3 +1,6 @@
+
+import { motion } from 'framer-motion';
+
 export default function AboutMe() {
   // Helper to render the larger 5x5 dot grid squares in white
   const renderDotGrid = () => (
@@ -11,20 +14,32 @@ export default function AboutMe() {
   return (
     <section id="About-Me" className="relative w-full bg-transparent text-white py-20 px-6 md:px-16 overflow-hidden">
       {/* Section Title */}
-      <div className="max-w-7xl mx-auto mb-16">
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="max-w-7xl mx-auto mb-16"
+      >
         <div className="flex items-center gap-4">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-mono tracking-wider whitespace-nowrap">
             <span className="text-[#e879f9]">#</span>About - Me
           </h2>
           <div className="h-[1px] bg-[#e879f9] w-24 sm:w-48 md:w-96 opacity-70"></div>
         </div>
-      </div>
+      </motion.div>
 
-      {/* Main Content Grid - Centered items and balanced layout */}
+      {/* Main Content Grid - Centered items vertically to balance text and image */}
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative">
         
         {/* Left Column: Text & CTA Card */}
-        <div className="lg:col-span-6 space-y-6 relative z-10 font-mono text-base md:text-lg leading-relaxed text-white">
+        <motion.div 
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="lg:col-span-6 space-y-6 relative z-10 font-mono text-base md:text-lg leading-relaxed text-white"
+        >
           {/* Decorative outline box on the far left edge */}
           <div className="absolute -left-20 top-10 w-24 h-36 border border-gray-600 opacity-40 pointer-events-none hidden xl:block"></div>
 
@@ -52,40 +67,46 @@ export default function AboutMe() {
               <span className="ml-4 text-[#e879f9]">→</span>
             </a>
           </div>
-        </div>
+        </motion.div>
 
         {/* Right Column: Image & Overlapping Dot Grids */}
-        <div className="lg:col-span-6 relative flex justify-center items-center mt-10 lg:mt-0">
+        <motion.div 
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.4 }}
+          className="lg:col-span-6 relative flex justify-center items-center mt-10 lg:mt-0"
+        >
           
-          {/* Top-Left Dot Grid (Overlapping image) */}
-          <div className="absolute -top-4 left-6 sm:left-12 z-20 pointer-events-none">
+          {/* Top-Left Dot Grid (Overlapping image) - Adjusted position */}
+          <div className="absolute -top-16 left-2 sm:left-6 z-25 pointer-events-none">
             {renderDotGrid()}
           </div>
 
           {/* Bottom-Right Dot Grid Upper (Overlapping image) */}
-          <div className="absolute right-8 bottom-32 z-20 pointer-events-none hidden sm:block">
+          <div className="absolute right-4 sm:right-8 bottom-36 z-25 pointer-events-none hidden sm:block">
             {renderDotGrid()}
           </div>
 
           {/* Bottom-Right Dot Grid Lower (Overlapping image) */}
-          <div className="absolute right-4 bottom-6 z-20 pointer-events-none">
+          <div className="absolute right-2 sm:right-4 bottom-4 z-25 pointer-events-none">
             {renderDotGrid()}
           </div>
 
-          {/* Image Container scaled up to match text height */}
-          <div className="relative z-10 w-full max-w-md">
+          {/* Image Container with original color restored */}
+          <div className="relative z-10 w-full max-w-xs -mt-1 sm:-mt-20">
             <div className="relative">
               <img 
-                src="./about-me/hero-4-2.png" 
+                src="./about-me/about-me-2.png" 
                 alt="About Me" 
-                className="w-full h-auto object-cover grayscale contrast-125"
+                className="w-full h-auto object-cover"
               />
             </div>
             {/* Horizontal line underneath the image */}
             <div className="h-[2px] bg-[#e879f9] w-full mt-2"></div>
           </div>
 
-        </div>
+        </motion.div>
 
       </div>
     </section>

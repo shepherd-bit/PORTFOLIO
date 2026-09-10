@@ -9,11 +9,19 @@ export default function Background() {
     let animationFrameId;
 
     let width = (canvas.width = window.innerWidth);
-    let height = (canvas.height = window.innerHeight);
+    let height = (canvas.height = Math.max(
+      document.body.scrollHeight,
+      document.documentElement.scrollHeight,
+      window.innerHeight
+    ));
 
     const handleResize = () => {
       width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
+      height = canvas.height = Math.max(
+        document.body.scrollHeight,
+        document.documentElement.scrollHeight,
+        window.innerHeight
+      );
     };
     window.addEventListener('resize', handleResize);
 
@@ -21,7 +29,7 @@ export default function Background() {
 
     const handleMouseMove = (e) => {
       mouse.x = e.clientX;
-      mouse.y = e.clientY;
+      mouse.y = e.clientY + window.scrollY;
     };
     window.addEventListener('mousemove', handleMouseMove);
 
@@ -31,7 +39,6 @@ export default function Background() {
     };
     window.addEventListener('mouseleave', handleMouseLeave);
 
-    // Tripled particle density (divisor changed from 12000 to 4000)
     const particleCount = Math.floor((width * height) / 4000);
     const particles = [];
 
@@ -46,7 +53,6 @@ export default function Background() {
     }
 
     const render = () => {
-      // One further tiny step lighter for the background base
       ctx.fillStyle = '#151c2e';
       ctx.fillRect(0, 0, width, height);
 
@@ -58,13 +64,11 @@ export default function Background() {
         if (p.x < 0 || p.x > width) p.vx *= -1;
         if (p.y < 0 || p.y > height) p.vy *= -1;
 
-        // Vibrant saturated particle nodes
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
         ctx.fillStyle = 'rgba(50, 215, 255, 1)';
         ctx.fill();
 
-        // Connect neighboring particles
         for (let j = i + 1; j < particles.length; j++) {
           let p2 = particles[j];
           let dx = p.x - p2.x;
@@ -81,7 +85,6 @@ export default function Background() {
           }
         }
 
-        // Connect particles to cursor
         if (mouse.x !== null && mouse.y !== null) {
           let dx = p.x - mouse.x;
           let dy = p.y - mouse.y;
@@ -114,7 +117,7 @@ export default function Background() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 pointer-events-none z-[-1]"
+      className="absolute inset-0 w-full h-full pointer-events-none z-[-1]"
     />
   );
 }

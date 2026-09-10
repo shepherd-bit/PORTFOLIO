@@ -40,11 +40,11 @@ const Hero = () => {
           transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
           className="lg:col-span-6 relative flex justify-center items-center"
         >
-          {/* Decorative Thicker White Outline Shapes - brought down slightly */}
+          {/* Decorative Thicker White Outline Shapes */}
           <div className="absolute top-2 -left-6 w-36 h-36 border-2 border-white pointer-events-none hidden sm:block"></div>
           <div className="absolute top-12 left-10 w-28 h-28 border-2 border-white pointer-events-none hidden sm:block"></div>
 
-          {/* Dot Grid Decoration - larger dots and moved closer to the image */}
+          {/* Dot Grid Decoration */}
           <div className="absolute bottom-16 right-10 grid grid-cols-5 gap-2.5 z-20 pointer-events-none">
             {[...Array(20)].map((_, i) => (
               <div key={i} className="w-2.5 h-2.5 bg-gray-400 rounded-full"></div>
@@ -59,7 +59,7 @@ const Hero = () => {
               className="w-full h-auto object-cover grayscale contrast-125"
             />
             
-            {/* Currently Working Badge - whitespace-nowrap added to fit everything on a single line */}
+            {/* Currently Working Badge */}
             <div className="absolute -bottom-5 right-2 z-30 border border-gray-600 bg-[#121824] px-4 py-2 flex items-center gap-3 shadow-lg whitespace-nowrap">
               <span className="w-3 h-3 bg-[#d946ef] inline-block shrink-0"></span>
               <p className="text-xs sm:text-sm font-mono text-gray-200">
@@ -77,19 +77,20 @@ const Hero = () => {
         transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
         className="max-w-3xl mx-auto w-full mt-12 mb-4 relative px-4"
       >
-        {/* Main Quote Box with Thick White Border & aggressively larger cutting-through quote marks */}
+        {/* Main Quote Box with Thick White Border & clean floating quote marks */}
         <div className="border-2 border-white px-8 py-6 relative inline-block w-full bg-transparent">
-          {/* Aggressively larger Top-Left Quote Mark */}
-          <span className="absolute -top-8 left-6 bg-[#0B0F17] px-3 text-gray-200 text-6xl font-serif leading-none select-none">
+          {/* Clean Top-Left Quote Mark (No black background wrap) */}
+          <span className="absolute -top-8 left-6 text-white text-6xl font-serif leading-none select-none">
             “
           </span>
 
           <p className="text-base sm:text-lg text-gray-100 font-medium tracking-wide text-center">
-            Look, AI can build stuff. But those ruthless industry level details is where I come in – Sign Me Up!!
+            Look, AI can build stuff. But those ruthless industry level <br />
+            details is where I come in – Sign Me Up!!
           </p>
 
-          {/* Aggressively larger Bottom-Right Quote Mark */}
-          <span className="absolute -bottom-8 right-12 bg-[#0B0F17] px-3 text-gray-200 text-6xl font-serif leading-none select-none">
+          {/* Clean Bottom-Right Quote Mark (No black background wrap) */}
+          <span className="absolute -bottom-8 right-12 text-white text-6xl font-serif leading-none select-none">
             ”
           </span>
         </div>

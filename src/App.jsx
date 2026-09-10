@@ -1,6 +1,7 @@
 import Background from './Tools/Background';
 import Socials from './components/Socials';
 import Navbar from './components/Navbar';
+import Hero from './components/Hero';
 
 export default function App() {
   return (
@@ -8,6 +9,7 @@ export default function App() {
       <Background />
       <Navbar />
       <Socials />
+      <Hero />
     </div>
   );
 }

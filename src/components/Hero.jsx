@@ -15,7 +15,7 @@ const Hero = () => {
           className="lg:col-span-6 lg:pl-6 flex flex-col items-start"
         >
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight mb-4">
-            Hi, I am Titus, a full <br />
+            Hi, I am Titus Oluoch, a full <br />
             Stack <span className="text-[#d946ef]">web developer.</span> <br />
             Equipped and Ready for <span className="text-[#d946ef]">Team</span> <br />
             or <span className="text-[#d946ef]">Solo</span> Projects

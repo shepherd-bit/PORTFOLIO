@@ -1,9 +1,9 @@
 export default function AboutMe() {
-  // Helper to render the 5x5 dot grid squares
+  // Helper to render the larger 5x5 dot grid squares in white
   const renderDotGrid = () => (
-    <div className="grid grid-cols-5 gap-3 w-max">
+    <div className="grid grid-cols-5 gap-4 w-max">
       {Array.from({ length: 25 }).map((_, i) => (
-        <div key={i} className="w-1 h-1 bg-gray-400 rounded-full opacity-60"></div>
+        <div key={i} className="w-1.5 h-1.5 bg-white rounded-full opacity-80 shadow-[0_0_8px_rgba(255,255,255,0.5)]"></div>
       ))}
     </div>
   );
@@ -13,10 +13,10 @@ export default function AboutMe() {
       {/* Section Title */}
       <div className="max-w-7xl mx-auto mb-16">
         <div className="flex items-center gap-4">
-          <h2 className="text-3xl md:text-4xl font-mono tracking-wider">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-mono tracking-wider whitespace-nowrap">
             <span className="text-[#e879f9]">#</span>About - Me
           </h2>
-          <div className="h-[1px] bg-[#e879f9] w-48 md:w-96 opacity-70"></div>
+          <div className="h-[1px] bg-[#e879f9] w-24 sm:w-48 md:w-96 opacity-70"></div>
         </div>
       </div>
 
@@ -54,21 +54,21 @@ export default function AboutMe() {
           </div>
         </div>
 
-        {/* Right Column: Image & Dot Grids */}
+        {/* Right Column: Image & Overlapping Dot Grids */}
         <div className="lg:col-span-6 relative flex justify-center items-center mt-10 lg:mt-0">
           
-          {/* Top-Left Dot Grid */}
-          <div className="absolute -top-6 left-2 z-0">
+          {/* Top-Left Dot Grid (Overlapping image) */}
+          <div className="absolute -top-4 left-6 sm:left-12 z-20 pointer-events-none">
             {renderDotGrid()}
           </div>
 
-          {/* Bottom-Right Dot Grid (Upper) */}
-          <div className="absolute right-6 bottom-28 z-0 hidden sm:block">
+          {/* Bottom-Right Dot Grid Upper (Overlapping image) */}
+          <div className="absolute right-8 bottom-32 z-20 pointer-events-none hidden sm:block">
             {renderDotGrid()}
           </div>
 
-          {/* Bottom-Right Dot Grid (Lower Edge) */}
-          <div className="absolute right-0 bottom-4 z-0">
+          {/* Bottom-Right Dot Grid Lower (Overlapping image) */}
+          <div className="absolute right-4 bottom-6 z-20 pointer-events-none">
             {renderDotGrid()}
           </div>
 

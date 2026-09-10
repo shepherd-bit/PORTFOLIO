@@ -9,34 +9,34 @@ export default function AboutMe() {
   );
 
   return (
-    <section id="About-Me" className="relative w-full bg-transparent text-gray-300 py-20 px-6 md:px-16 overflow-hidden">
+    <section id="About-Me" className="relative w-full bg-transparent text-white py-20 px-6 md:px-16 overflow-hidden">
       {/* Section Title */}
       <div className="max-w-7xl mx-auto mb-16">
         <div className="flex items-center gap-4">
-          <h2 className="text-3xl md:text-4xl font-mono text-[#e879f9] tracking-wider">
-            #about-me
+          <h2 className="text-3xl md:text-4xl font-mono tracking-wider">
+            <span className="text-[#e879f9]">#</span>About - Me
           </h2>
           <div className="h-[1px] bg-[#e879f9] w-48 md:w-96 opacity-70"></div>
         </div>
       </div>
 
-      {/* Main Content Grid - reduced gap to pull text and image closer */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center relative">
+      {/* Main Content Grid - Centered items and balanced layout */}
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative">
         
         {/* Left Column: Text & CTA Card */}
-        <div className="lg:col-span-7 space-y-6 relative z-10 font-mono text-sm md:text-base leading-relaxed">
+        <div className="lg:col-span-6 space-y-6 relative z-10 font-mono text-base md:text-lg leading-relaxed text-white">
           {/* Decorative outline box on the far left edge */}
           <div className="absolute -left-20 top-10 w-24 h-36 border border-gray-600 opacity-40 pointer-events-none hidden xl:block"></div>
 
-          <p className="text-gray-400 font-semibold">
+          <p className="text-gray-300 font-semibold">
             One for whoever is reading this:
           </p>
 
-          <p className="text-gray-300">
+          <p className="text-white">
             Enrolled for a Bachelor of Science, Computer Science at The East African University in 2018. Spent 6 years studying, but missing exams (financial difficulties - most people in my country have them, no big deal).
           </p>
 
-          <p className="text-gray-300">
+          <p className="text-white">
             After 6 years, I left school without my graduation papers, because I hadn’t paid for most of my exams. Now I decided to make a name for myself in freelance world by building stuff that help people achieve their goals, and here I am. I am deeply committed to prove myself as a productive force.
           </p>
 
@@ -55,25 +55,25 @@ export default function AboutMe() {
         </div>
 
         {/* Right Column: Image & Dot Grids */}
-        <div className="lg:col-span-5 relative flex justify-center items-center mt-10 lg:mt-0">
+        <div className="lg:col-span-6 relative flex justify-center items-center mt-10 lg:mt-0">
           
           {/* Top-Left Dot Grid */}
-          <div className="absolute -top-8 -left-6 z-0">
+          <div className="absolute -top-6 left-2 z-0">
             {renderDotGrid()}
           </div>
 
           {/* Bottom-Right Dot Grid (Upper) */}
-          <div className="absolute right-4 bottom-24 z-0 hidden sm:block">
+          <div className="absolute right-6 bottom-28 z-0 hidden sm:block">
             {renderDotGrid()}
           </div>
 
           {/* Bottom-Right Dot Grid (Lower Edge) */}
-          <div className="absolute -right-6 bottom-4 z-0">
+          <div className="absolute right-0 bottom-4 z-0">
             {renderDotGrid()}
           </div>
 
-          {/* Image Container with bottom accent line */}
-          <div className="relative z-10 w-full max-w-sm">
+          {/* Image Container scaled up to match text height */}
+          <div className="relative z-10 w-full max-w-md">
             <div className="relative">
               <img 
                 src="./about-me/hero-4-2.png" 

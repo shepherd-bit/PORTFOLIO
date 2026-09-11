@@ -33,7 +33,7 @@ const Credo = () => {
   ];
 
   return (
-    <div className="w-full max-w-7xl mx-auto p-6 md:p-10 bg-[#0b1329] border border-[#e879f9]/40 rounded-none shadow-[0_0_25px_rgba(232,121,249,0.15)] relative">
+    <div className="w-full max-w-7xl mx-auto p-6 md:p-10 bg-[#0b1329] border border-[#e879f9]/40 rounded-none shadow-[0_0_25px_rgba(232,121,249,0.15)] relative animate-in fade-in zoom-in-95 duration-700 ease-out">
       
       {/* Dossier Top Tab Accent */}
       <div className="absolute -top-3 left-10 px-4 py-1 bg-[#0b1329] border border-[#e879f9]/40 text-[#e879f9] text-xs font-mono uppercase tracking-widest">
@@ -50,15 +50,8 @@ const Credo = () => {
             <img 
               src="./projects/credo-preview.png" 
               alt="Credo App Preview" 
-              className="absolute inset-0 w-full h-full object-cover opacity-50"
+              className="absolute inset-0 w-full h-full object-cover opacity-60 transition-transform duration-700 group-hover:scale-105"
             />
-            
-            {/* Glowing Overlay with "Credo" text */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-[#0b1329]/90 to-transparent flex items-center justify-center">
-              <span className="text-4xl sm:text-5xl font-extrabold tracking-widest text-white uppercase drop-shadow-[0_0_20px_rgba(232,121,249,0.8)] animate-pulse font-mono">
-                Credo
-              </span>
-            </div>
           </div>
 
           {/* Tools / Hardware Specs Grid */}
@@ -70,7 +63,7 @@ const Credo = () => {
               {tools.map((tool, index) => (
                 <span 
                   key={index} 
-                  className="flex items-center space-x-1.5 px-3 py-1.5 bg-[#070d1d] border border-cyan-500/20 rounded-none text-xs font-mono text-gray-300"
+                  className="flex items-center space-x-1.5 px-3 py-1.5 bg-[#070d1d] border border-cyan-500/20 rounded-none text-xs font-mono text-gray-300 transition-all duration-300 hover:-translate-y-1 hover:border-[#e879f9] hover:shadow-[0_0_12px_rgba(232,121,249,0.3)] hover:text-white cursor-default"
                 >
                   {tool.icon}
                   <span>{tool.name}</span>
@@ -126,7 +119,7 @@ const Credo = () => {
             </button>
 
             <a
-              href="https://github.com"
+              href="https://github.com/shepherd-bit/credo"
               target="_blank"
               rel="noopener noreferrer"
               className="flex-1 min-w-[140px] flex items-center justify-center space-x-2 bg-[#070d1d] hover:bg-[#1a1d26] text-white border border-cyan-500/50 px-4 py-3 text-xs tracking-wider uppercase transition-colors shadow-lg"
@@ -140,15 +133,15 @@ const Credo = () => {
 
       </div>
 
-      {/* YouTube Video Modal Popup */}
+      {/* YouTube Video Modal Popup with Quantum Zoom */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-          <div className="relative w-full max-w-4xl bg-[#0b1329] border border-[#e879f9] p-4 shadow-2xl">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-4 animate-in fade-in duration-300">
+          <div className="relative w-full max-w-4xl bg-[#0b1329] border border-[#e879f9] p-4 shadow-[0_0_40px_rgba(232,121,249,0.3)] animate-in zoom-in-90 duration-300 ease-out">
             <div className="flex justify-between items-center mb-3">
               <span className="text-xs font-mono text-[#e879f9] uppercase tracking-widest">// Credo - Live Demonstration</span>
               <button 
                 onClick={() => setIsModalOpen(false)}
-                className="text-gray-400 hover:text-white transition-colors p-1"
+                className="text-gray-400 hover:text-white transition-colors p-1 cursor-pointer"
               >
                 <X className="w-6 h-6" />
               </button>
@@ -156,7 +149,7 @@ const Credo = () => {
             <div className="relative w-full aspect-video bg-black border border-cyan-500/30">
               <iframe
                 className="absolute inset-0 w-full h-full"
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                src="https://www.youtube.com/embed/oBJ98xe8n18" 
                 title="Credo Video Demo"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

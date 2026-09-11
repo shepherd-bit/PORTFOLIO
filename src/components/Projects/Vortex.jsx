@@ -1,3 +1,182 @@
-export default function Vortex() {
-  return <div className="text-cyan-400 p-4">Vortex Component Loading...</div>;
-}
+import { useState } from 'react';
+import { motion } from 'framer-motion';
+import { 
+  FaNodeJs, 
+  FaReact, 
+  FaGithub 
+} from 'react-icons/fa';
+import { 
+  SiPostgresql, 
+  SiTailwindcss, 
+  SiExpress, 
+  SiSequelize, 
+  SiRedux, 
+  SiCloudinary, 
+  SiJsonwebtokens 
+} from 'react-icons/si';
+import { FileText, Play, X } from 'lucide-react';
+
+const Vortex = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const tools = [
+    { name: 'PostgreSQL', icon: <SiPostgresql className="text-blue-400" /> },
+    { name: 'React', icon: <FaReact className="text-[#e879f9]" /> },
+    { name: 'Tailwind CSS', icon: <SiTailwindcss className="text-teal-400" /> },
+    { name: 'Express.js', icon: <SiExpress className="text-gray-300" /> },
+    { name: 'Node.js', icon: <FaNodeJs className="text-green-500" /> },
+    { name: 'Multer', icon: <FileText className="text-orange-400" /> },
+    { name: 'Sequelize', icon: <SiSequelize className="text-blue-500" /> },
+    { name: 'Redux Toolkit', icon: <SiRedux className="text-purple-400" /> },
+    { name: 'Cloudinary', icon: <SiCloudinary className="text-cyan-400" /> },
+    { name: 'JWT', icon: <SiJsonwebtokens className="text-pink-400" /> },
+  ];
+
+  return (
+    <motion.div 
+      initial={{ opacity: 0, scale: 0.95, y: 20 }}
+      animate={{ opacity: 1, scale: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="w-full max-w-7xl mx-auto p-6 md:p-10 bg-[#0b1329] border border-[#e879f9]/40 rounded-none shadow-[0_0_25px_rgba(232,121,249,0.15)] relative"
+    >
+      
+      {/* Dossier Top Tab Accent */}
+      <div className="absolute -top-3 left-10 px-4 py-1 bg-[#0b1329] border border-[#e879f9]/40 text-[#e879f9] text-xs font-mono uppercase tracking-widest">
+        Project // 03
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mt-4">
+        
+        {/* LEFT COLUMN: Multimedia Frame & Hardware Specs (Tools) */}
+        <div className="lg:col-span-6 flex flex-col space-y-6">
+          
+          {/* App Preview Image Container - Clear Thumbnail (No Dark Overlay) */}
+          <div className="relative w-full h-72 sm:h-80 bg-[#070d1d] border border-[#e879f9]/30 rounded-none overflow-hidden flex items-center justify-center group shadow-inner">
+            <img 
+              src="./projects/vortex-preview.png" 
+              alt="Vortex App Preview" 
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+          </div>
+
+          {/* Tools / Hardware Specs Grid */}
+          <div className="flex flex-col space-y-3">
+            <h4 className="text-xs font-mono tracking-widest text-[#e879f9] uppercase">
+              // Hardware Specs (Tools Used)
+            </h4>
+            <div className="flex flex-wrap gap-2">
+              {tools.map((tool, index) => (
+                <span 
+                  key={index} 
+                  className="flex items-center space-x-1.5 px-3 py-1.5 bg-[#070d1d] border border-cyan-500/20 rounded-none text-xs font-mono text-gray-300 transition-all duration-300 hover:-translate-y-1 hover:border-[#e879f9] hover:shadow-[0_0_12px_rgba(232,121,249,0.3)] hover:text-white cursor-default"
+                >
+                  {tool.icon}
+                  <span>{tool.name}</span>
+                </span>
+              ))}
+            </div>
+          </div>
+
+        </div>
+
+        {/* RIGHT COLUMN: Classified Technical Brief (Characteristics) */}
+        <div className="lg:col-span-6 flex flex-col justify-between h-full space-y-6 font-mono text-gray-300">
+          
+          <div className="space-y-4">
+            <div>
+              <h2 className="text-3xl font-bold text-white tracking-wide mb-2 flex items-center font-mono">
+                <span className="text-[#e879f9] mr-2">#</span> Vortex
+              </h2>
+              <div className="inline-block px-3 py-1 bg-[#1a1d26] border border-[#e879f9]/40 text-xs font-mono text-[#e879f9] uppercase tracking-widest">
+                Category: Content Management System / Corporate Blog Web Application
+              </div>
+            </div>
+
+            {/* Workflow */}
+            <div className="border-l-2 border-[#e879f9] pl-4 py-1 space-y-1 bg-[#070d1d]/40">
+              <h3 className="text-xs font-semibold text-[#e879f9] uppercase tracking-wider">
+                Workflow
+              </h3>
+              <p className="text-sm leading-relaxed text-gray-300 font-sans">
+                The CEO uses a custom-made CMS dashboard backed by Node.js, Express, and PostgreSQL to create, view, update, and delete rich-media updates including text entries, uploaded images, videos, and documents like PDF memos, while the public-facing site dynamically renders these feeds, investor updates, and operational logs.
+              </p>
+            </div>
+
+            {/* Scenario */}
+            <div className="border-l-2 border-cyan-500 pl-4 py-1 space-y-1 bg-[#070d1d]/40">
+              <h3 className="text-xs font-semibold text-cyan-400 uppercase tracking-wider">
+                Scenario
+              </h3>
+              <p className="text-sm leading-relaxed text-gray-300 font-sans">
+                A growing hardware startup needs to maintain transparent communication with investors, regulators, and the public by publishing real-time development logs and internal memos without relying on third-party publishing platforms.
+              </p>
+            </div>
+          </div>
+
+          {/* Action Buttons */}
+          <div className="flex flex-wrap gap-4 pt-4">
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="flex-1 min-w-[140px] flex items-center justify-center space-x-2 bg-[#1a1d26] hover:bg-[#222633] text-white border border-[#e879f9] px-4 py-3 text-xs tracking-wider uppercase transition-colors shadow-lg cursor-pointer"
+            >
+              <Play className="w-4 h-4 text-[#e879f9]" />
+              <span>Video Demo</span>
+            </button>
+
+            <a
+              href="https://github.com/shepherd-bit/vortex-technologies"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 min-w-[140px] flex items-center justify-center space-x-2 bg-[#070d1d] hover:bg-[#1a1d26] text-white border border-cyan-500/50 px-4 py-3 text-xs tracking-wider uppercase transition-colors shadow-lg"
+            >
+              <FaGithub className="w-4 h-4 text-cyan-400" />
+              <span>Source</span>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+      {/* YouTube Video Modal Popup with Quantum Zoom */}
+      {isModalOpen && (
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-4"
+        >
+          <motion.div 
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ type: "spring", duration: 0.4, bounce: 0.2 }}
+            className="relative w-full max-w-4xl bg-[#0b1329] border border-[#e879f9] p-4 shadow-[0_0_40px_rgba(232,121,249,0.3)]"
+          >
+            <div className="flex justify-between items-center mb-3">
+              <span className="text-xs font-mono text-[#e879f9] uppercase tracking-widest">// Vortex - Live Demonstration</span>
+              <button 
+                onClick={() => setIsModalOpen(false)}
+                className="text-gray-400 hover:text-white transition-colors p-1 cursor-pointer"
+              >
+                <X className="w-6 h-6" />
+              </button>
+            </div>
+            <div className="relative w-full aspect-video bg-black border border-cyan-500/30">
+              <iframe
+                className="absolute inset-0 w-full h-full"
+                src="https://www.youtube.com/embed/kCp-BYBb21k" 
+                title="Vortex Video Demo"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+
+    </motion.div>
+  );
+};
+
+export default Vortex;

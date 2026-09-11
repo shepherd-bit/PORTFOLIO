@@ -54,7 +54,7 @@ const Hero = () => {
           {/* Main Image Container */}
           <div className="relative z-10 w-full max-w-md border border-gray-700 bg-transparent p-2">
             <img 
-              src="./hero/hero-4.png" 
+              src="./hero/me-2.png" 
               alt="Titus - Full Stack Web Developer" 
               className="w-full h-auto object-cover grayscale contrast-125"
             />

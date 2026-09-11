@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import { 
   FaNodeJs, 
   FaReact, 
@@ -33,7 +34,12 @@ const Credo = () => {
   ];
 
   return (
-    <div className="w-full max-w-7xl mx-auto p-6 md:p-10 bg-[#0b1329] border border-[#e879f9]/40 rounded-none shadow-[0_0_25px_rgba(232,121,249,0.15)] relative animate-in fade-in zoom-in-95 duration-700 ease-out">
+    <motion.div 
+      initial={{ opacity: 0, scale: 0.95, y: 20 }}
+      animate={{ opacity: 1, scale: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="w-full max-w-7xl mx-auto p-6 md:p-10 bg-[#0b1329] border border-[#e879f9]/40 rounded-none shadow-[0_0_25px_rgba(232,121,249,0.15)] relative"
+    >
       
       {/* Dossier Top Tab Accent */}
       <div className="absolute -top-3 left-10 px-4 py-1 bg-[#0b1329] border border-[#e879f9]/40 text-[#e879f9] text-xs font-mono uppercase tracking-widest">
@@ -45,12 +51,12 @@ const Credo = () => {
         {/* LEFT COLUMN: Multimedia Frame & Hardware Specs (Tools) */}
         <div className="lg:col-span-6 flex flex-col space-y-6">
           
-          {/* App Preview Image Container */}
+          {/* App Preview Image Container - Clear Thumbnail (No Dark Overlay) */}
           <div className="relative w-full h-72 sm:h-80 bg-[#070d1d] border border-[#e879f9]/30 rounded-none overflow-hidden flex items-center justify-center group shadow-inner">
             <img 
               src="./projects/credo-preview.png" 
               alt="Credo App Preview" 
-              className="absolute inset-0 w-full h-full object-cover opacity-60 transition-transform duration-700 group-hover:scale-105"
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
           </div>
 
@@ -135,8 +141,18 @@ const Credo = () => {
 
       {/* YouTube Video Modal Popup with Quantum Zoom */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-4 animate-in fade-in duration-300">
-          <div className="relative w-full max-w-4xl bg-[#0b1329] border border-[#e879f9] p-4 shadow-[0_0_40px_rgba(232,121,249,0.3)] animate-in zoom-in-90 duration-300 ease-out">
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-4"
+        >
+          <motion.div 
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ type: "spring", duration: 0.4, bounce: 0.2 }}
+            className="relative w-full max-w-4xl bg-[#0b1329] border border-[#e879f9] p-4 shadow-[0_0_40px_rgba(232,121,249,0.3)]"
+          >
             <div className="flex justify-between items-center mb-3">
               <span className="text-xs font-mono text-[#e879f9] uppercase tracking-widest">// Credo - Live Demonstration</span>
               <button 
@@ -156,11 +172,11 @@ const Credo = () => {
                 allowFullScreen
               ></iframe>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       )}
 
-    </div>
+    </motion.div>
   );
 };
 

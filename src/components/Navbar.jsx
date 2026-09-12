@@ -1,18 +1,16 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion'; // Import AnimatePresence
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
-  // State to manage mobile menu open/closed
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { name: 'Home', href: '#' },
-    { name: 'About-Me', href: '#' },
-    { name: 'Projects', href: '#' },
-    { name: 'Skills', href: '#' },
-    { name: 'Experience', href: '#' },
-    { name: 'Contacts', href: '#' },
-    { name: 'Resume', href: '#' },
+    { name: 'Home', href: '#home' },
+    { name: 'About-Me', href: '#about-me' },
+    { name: 'Projects', href: '#projects' },
+    { name: 'Skills', href: '#skills' },
+    { name: 'Experience', href: '#experience' },
+    { name: 'Contacts', href: '#contacts' },
   ];
 
   const headerVariants = {
@@ -24,7 +22,6 @@ const Navbar = () => {
     },
   };
 
-  // Animation variants for the mobile menu dropdown
   const menuVariants = {
     closed: { opacity: 0, height: 0 },
     open: {
@@ -62,30 +59,30 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Navigation Links (Hidden on mobile) */}
-        {/* The 'md:flex' class makes these invisible below the medium breakpoint */}
         <div className="hidden md:flex items-center gap-8 font-mono text-gray-300">
           {navLinks.map((link) => (
-            <a
+            <motion.a
               key={link.name}
               href={link.href}
-              className="text-sm group transition duration-300 ease-in-out flex items-center"
+              whileHover={{ scale: 1.15, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 300, damping: 15 }}
+              className="text-sm group transition-colors duration-300 ease-in-out flex items-center"
             >
               <span className="text-[#c084fc] mr-1">#</span>
               <span className="text-gray-400 group-hover:text-white transition-colors duration-300">
                 {link.name}
               </span>
-            </a>
+            </motion.a>
           ))}
         </div>
 
-        {/* Mobile Hamburger Menu Button (Visible only on mobile) */}
-        {/* The 'md:hidden' class makes this visible only below the medium breakpoint */}
+        {/* Mobile Hamburger Menu Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="md:hidden p-2 rounded-md text-gray-400 hover:text-white hover:bg-white/10 focus:outline-none"
           aria-label="Toggle menu"
         >
-          {/* Simple hamburger icon using SVG */}
           <svg
             className="w-6 h-6"
             fill="none"
@@ -94,17 +91,15 @@ const Navbar = () => {
             xmlns="http://www.w3.org/2000/svg"
           >
             {isOpen ? (
-              // Show 'X' when menu is open
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             ) : (
-              // Show hamburger when menu is closed
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
             )}
           </svg>
         </button>
       </nav>
 
-      {/* Mobile Menu Dropdown (Appears below the main header) */}
+      {/* Mobile Menu Dropdown */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -119,8 +114,8 @@ const Navbar = () => {
                 <motion.a
                   key={link.name}
                   href={link.href}
-                  variants={linkVariants} // Apply animation variant to links
-                  onClick={() => setIsOpen(false)} // Close menu on link click
+                  variants={linkVariants}
+                  onClick={() => setIsOpen(false)}
                   className="text-base flex items-center border-b border-white/5 pb-4 last:border-b-0"
                 >
                   <span className="text-[#c084fc] mr-3">#</span>

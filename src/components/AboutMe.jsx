@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 
 export default function AboutMe() {
@@ -12,7 +11,7 @@ export default function AboutMe() {
   );
 
   return (
-    <section id="About-Me" className="relative w-full bg-transparent text-white py-20 px-6 md:px-16 overflow-hidden">
+    <section id="about-me" className="relative w-full bg-transparent text-white py-20 px-6 md:px-16 overflow-hidden">
       {/* Section Title */}
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
@@ -58,7 +57,7 @@ export default function AboutMe() {
           {/* CTA Card (Not transparent, purple border, arrow link) */}
           <div className="pt-4">
             <a 
-              href="#" 
+              href="#contacts" 
               className="inline-flex items-center justify-between bg-[#1a1d26] border border-[#e879f9] px-6 py-4 rounded-none text-white font-mono shadow-lg hover:bg-[#222633] transition-colors w-full sm:w-auto"
             >
               <span>

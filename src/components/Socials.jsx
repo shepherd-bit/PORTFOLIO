@@ -1,14 +1,29 @@
 import { motion } from 'framer-motion';
 
 const Socials = () => {
-  const iconClass = "w-6 h-6 object-contain";
+  const iconClass = "w-8 h-8 object-contain"; // Increased from w-6 h-6 to make them larger
 
   const socials = [
-    { label: "GitHub", href: "https://github.com", icon: <img src="./socials/github.svg" alt="GitHub" className={iconClass} /> },
-    { label: "Peerlist", href: "https://peerlist.io", icon: <img src="./socials/peerlist.svg" alt="Peerlist" className={iconClass} /> },
-    { label: "LinkedIn", href: "https://linkedin.com", icon: <img src="./socials/linkin.svg" alt="LinkedIn" className={iconClass} /> },
-    { label: "Instagram", href: "https://instagram.com", icon: <img src="./socials/insta.svg" alt="Instagram" className={iconClass} /> },
-    { label: "WhatsApp", href: "https://whatsapp.com", icon: <img src="./socials/whatsapp.svg" alt="WhatsApp" className={iconClass} /> },
+    { 
+      label: "GitHub", 
+      href: "https://github.com/shepherd-bit", 
+      icon: <img src="./socials/github.svg" alt="GitHub" className={iconClass} /> 
+    },
+    { 
+      label: "Peerlist", 
+      href: "https://peerlist.io/shepherd", 
+      icon: <img src="./socials/peerlist.svg" alt="Peerlist" className={iconClass} /> 
+    },
+    { 
+      label: "Instagram", 
+      href: "https://www.instagram.com/___.shepherd.___?utm_source=qr&stkn=MWtqY2NjcGVzdmNvdw==", 
+      icon: <img src="./socials/insta.svg" alt="Instagram" className={iconClass} /> 
+    },
+    { 
+      label: "WhatsApp", 
+      href: "https://wa.me/254112470926", 
+      icon: <img src="./socials/whatsapp.svg" alt="WhatsApp" className={iconClass} /> 
+    },
   ];
 
   // Variants for the vertical (desktop) panel fade-in
@@ -44,12 +59,12 @@ const Socials = () => {
         variants={desktopPanelVariants}
         initial="hidden"
         animate="visible"
-        className="fixed left-6 top-1/2 -translate-y-1/2 z-50 hidden flex-col items-center md:flex gap-4"
+        className="fixed left-6 top-1/2 -translate-y-1/2 z-50 hidden flex-col items-center md:flex gap-6"
       >
         {/* Top Line */}
-        <div className="w-[1px] h-24 bg-gray-500/40 mb-1"></div>
+        <div className="w-[1px] h-24 bg-gray-400/60 mb-1"></div>
 
-        {/* Floating Icons without housing */}
+        {/* Floating Icons with Hover Tooltips */}
         {socials.map((social, index) => (
           <motion.a
             key={index}
@@ -58,16 +73,21 @@ const Socials = () => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={social.label}
-            whileHover={{ scale: 1.15 }}
+            whileHover={{ scale: 1.2 }}
             whileTap={{ scale: 0.95 }}
-            className="flex justify-center items-center w-8 h-8 text-gray-400 hover:text-white transition-colors"
+            className="relative group flex justify-center items-center w-10 h-10 text-gray-300 hover:text-white transition-colors"
           >
             {social.icon}
+
+            {/* Tooltip naming each app upon hover */}
+            <span className="absolute left-14 px-2.5 py-1 bg-[#070d1d] border border-white/40 text-white text-xs font-mono tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap shadow-lg">
+              {social.label}
+            </span>
           </motion.a>
         ))}
 
         {/* Bottom Line */}
-        <div className="w-[1px] h-24 bg-gray-500/40 mt-1"></div>
+        <div className="w-[1px] h-24 bg-gray-400/60 mt-1"></div>
       </motion.div>
 
 
@@ -87,7 +107,7 @@ const Socials = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={social.label}
-              className="flex justify-center items-center w-10 h-10 active:scale-110 transition-transform"
+              className="flex justify-center items-center w-12 h-12 active:scale-110 transition-transform"
             >
               {social.icon}
             </a>

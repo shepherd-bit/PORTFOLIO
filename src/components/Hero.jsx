@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
-    <section id="home" className="relative w-full min-h-screen text-white pt-20 pb-12 px-6 md:px-16 flex flex-col justify-between overflow-hidden">
+    <section id="Home" className="relative w-full min-h-screen text-white pt-20 pb-12 px-6 md:px-16 flex flex-col justify-between overflow-hidden">
       
       {/* Top / Main Hero Content */}
       <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-center z-10 pt-4">

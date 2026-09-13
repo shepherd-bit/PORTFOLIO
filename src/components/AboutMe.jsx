@@ -61,7 +61,7 @@ export default function AboutMe() {
               className="inline-flex items-center justify-between bg-[#1a1d26] border border-[#e879f9] px-6 py-4 rounded-none text-white font-mono shadow-lg hover:bg-[#222633] transition-colors w-full sm:w-auto"
             >
               <span>
-                Thanks for Knowing Me - Click <span className="text-[#e879f9] underline cursor-pointer">HERE</span> for a Price
+                Thanks for Knowing Me - Check Out My Skills
               </span>
               <span className="ml-4 text-[#e879f9]">→</span>
             </a>

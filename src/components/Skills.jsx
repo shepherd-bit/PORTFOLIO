@@ -65,11 +65,11 @@ const Skills = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="w-full max-w-7xl mx-auto px-6 py-20 relative font-mono text-gray-300"
+      className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative font-mono text-gray-300 overflow-hidden"
     >
       
       {/* Heading & Horizontal Line Graphic */}
-      <div className="flex items-center space-x-6 mb-16">
+      <div className="flex items-center space-x-4 sm:space-x-6 mb-16">
         <h2 className="text-3xl font-normal text-white tracking-wide flex items-center">
           <span className="text-[#e879f9] mr-2">#</span>Skills
         </h2>
@@ -99,14 +99,14 @@ const Skills = () => {
 
         </div>
 
-        {/* Right Side: Skill Tables Container with Diagonal Scale and White Borders */}
-        <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6 transform scale-[1.06] origin-top-left">
+        {/* Right Side: Skill Tables Container with Balanced Mobile Spacing */}
+        <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6 lg:scale-[1.06] lg:origin-top-left w-full">
           {skillGroups.map((group, index) => (
             <div 
               key={index}
-              className="border border-white/70 bg-transparent flex flex-col"
+              className="border border-white/70 bg-transparent flex flex-col w-full"
             >
-              {/* Table Header (Not bold) */}
+              {/* Table Header */}
               <div className="px-4 py-2 border-b border-white/50 text-[#e879f9] text-xs uppercase tracking-widest font-normal bg-[#070d1d]/30">
                 {group.title}
               </div>

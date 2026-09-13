@@ -12,6 +12,11 @@ import Footer from './components/Footer';
 export default function App() {
   return (
     <div className="min-h-screen text-white relative">
+      <style>{`
+        html {
+          scroll-behavior: smooth;
+        }
+      `}</style>
       <Background />
       <Navbar />
       <Socials />

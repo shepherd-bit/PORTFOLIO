@@ -65,18 +65,18 @@ const Skills = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative font-mono text-gray-300 overflow-hidden"
+      className="w-full max-w-7xl mx-auto px-6 py-20 relative font-mono text-gray-300 overflow-hidden"
     >
       
       {/* Heading & Horizontal Line Graphic */}
-      <div className="flex items-center space-x-4 sm:space-x-6 mb-16">
+      <div className="flex items-center space-x-6 mb-16">
         <h2 className="text-3xl font-normal text-white tracking-wide flex items-center">
           <span className="text-[#e879f9] mr-2">#</span>Skills
         </h2>
         <div className="flex-1 h-[1px] bg-[#e879f9]/50 max-w-xs"></div>
       </div>
 
-      <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+      <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-10 items-start w-full">
         
         {/* Left Side: Decorative Graphics */}
         <div className="lg:col-span-5 hidden lg:flex flex-col space-y-10 relative select-none pointer-events-none -mt-6">
@@ -99,8 +99,8 @@ const Skills = () => {
 
         </div>
 
-        {/* Right Side: Skill Tables Container with Balanced Mobile Spacing */}
-        <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6 lg:scale-[1.06] lg:origin-top-left w-full">
+        {/* Right Side: Skill Tables Container */}
+        <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6 w-full pr-4 sm:pr-6 lg:pr-8">
           {skillGroups.map((group, index) => (
             <div 
               key={index}
